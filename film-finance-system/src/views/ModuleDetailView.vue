@@ -766,8 +766,12 @@ onMounted(() => {
 
 <style scoped>
 .module-detail-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .breadcrumb {
@@ -817,6 +821,9 @@ onMounted(() => {
 
 .module-content {
   margin-top: 20px;
+  max-width: 1200px;
+  margin: 20px auto 0 auto;
+  width: 100%;
 }
 
 .content-card, .info-card {

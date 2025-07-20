@@ -197,13 +197,23 @@ const goToModule = (moduleKey: string) => {
 
 <style scoped>
 .welcome-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .welcome-header {
-  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
 }
 
 .welcome-content {
@@ -212,15 +222,16 @@ const goToModule = (moduleKey: string) => {
 }
 
 .welcome-title {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
-  color: #303133;
+  color: white;
   margin: 0 0 12px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-subtitle {
-  font-size: 16px;
-  color: #606266;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
@@ -230,6 +241,14 @@ const goToModule = (moduleKey: string) => {
 
 .stat-card {
   text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
 }
 
 .stat-card :deep(.el-statistic__content) {
@@ -241,7 +260,7 @@ const goToModule = (moduleKey: string) => {
 
 .stat-icon {
   font-size: 20px;
-  color: #409eff;
+  color: #667eea;
 }
 
 .section-title {
@@ -254,16 +273,23 @@ const goToModule = (moduleKey: string) => {
 
 .features-section {
   margin-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  width: 100%;
 }
 
 .feature-card {
   height: 100%;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .feature-content {
@@ -272,8 +298,11 @@ const goToModule = (moduleKey: string) => {
 }
 
 .feature-icon {
-  font-size: 32px;
-  color: #409eff;
+  font-size: 36px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 16px;
 }
 
@@ -293,10 +322,16 @@ const goToModule = (moduleKey: string) => {
 
 .quick-start-section {
   margin-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  width: 100%;
 }
 
 .quick-start-card {
   height: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -325,16 +360,24 @@ const goToModule = (moduleKey: string) => {
 }
 
 .module-link:hover {
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  transform: translateX(4px);
 }
 
 .version-info {
   margin-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  width: 100%;
 }
 
 .version-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .version-card :deep(.el-card__body) {

@@ -171,19 +171,29 @@ const handleLogout = () => {
 <style scoped>
 .dashboard-container {
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .header {
-  height: 60px;
-  background: #fff;
-  border-bottom: 1px solid #e6e6e6;
+  height: 64px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1000;
 }
 
 .header-left {
@@ -193,9 +203,10 @@ const handleLogout = () => {
 
 .system-title {
   margin: 0;
-  color: #303133;
-  font-size: 18px;
+  color: white;
+  font-size: 20px;
   font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .header-right {
@@ -205,7 +216,7 @@ const handleLogout = () => {
 }
 
 .welcome-text {
-  color: #606266;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
 }
 
@@ -220,33 +231,67 @@ const handleLogout = () => {
 }
 
 .sidebar {
-  width: 240px;
-  background: #fff;
-  border-right: 1px solid #e6e6e6;
+  width: 260px;
+  background: #2c3e50;
+  border-right: none;
   overflow-y: auto;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-menu {
   border: none;
   height: 100%;
+  background: #2c3e50;
 }
 
 .sidebar-menu :deep(.el-sub-menu__title) {
-  height: 48px;
-  line-height: 48px;
-  padding-left: 20px !important;
+  height: 56px;
+  line-height: 56px;
+  padding-left: 24px !important;
+  color: #ecf0f1 !important;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu :deep(.el-sub-menu__title:hover) {
+  background-color: #34495e !important;
+  color: #3498db !important;
 }
 
 .sidebar-menu :deep(.el-menu-item) {
-  height: 40px;
-  line-height: 40px;
-  padding-left: 40px !important;
+  height: 48px;
+  line-height: 48px;
+  padding-left: 48px !important;
+  color: #bdc3c7 !important;
+  background-color: #34495e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-menu :deep(.el-menu-item:hover) {
+  background-color: #3498db !important;
+  color: white !important;
+}
+
+.sidebar-menu :deep(.el-menu-item.is-active) {
+  background-color: #e74c3c !important;
+  color: white !important;
+  border-right: 3px solid #c0392b;
+}
+
+.sidebar-menu :deep(.el-sub-menu .el-menu) {
+  background-color: #34495e;
+}
+
+.sidebar-menu :deep(.el-sub-menu__icon-arrow) {
+  color: #ecf0f1 !important;
 }
 
 .content-area {
   flex: 1;
-  background: #f5f5f5;
+  background: #f8f9fa;
   overflow-y: auto;
-  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+  height: calc(100vh - 64px);
 }
 </style>

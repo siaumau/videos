@@ -1,19 +1,22 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-section">
+          <el-icon class="logo-icon"><Film /></el-icon>
+        </div>
+        <h2 class="login-title">
           影視產業財務管理系統
         </h2>
-        <p class="mt-2 text-center text-sm text-gray-600">
-          請登入您的帳號
+        <p class="login-subtitle">
+          一站式財務管理解決方案
         </p>
       </div>
       <el-form 
         ref="loginFormRef" 
         :model="loginForm" 
         :rules="rules" 
-        class="mt-8 space-y-6"
+        class="login-form"
         @submit.prevent="handleLogin"
       >
         <el-form-item prop="username">
@@ -41,19 +44,26 @@
           <el-button 
             type="primary" 
             size="large" 
-            class="w-full"
+            class="login-button"
             :loading="loading"
             @click="handleLogin"
           >
-            登入
+            <el-icon><Lock /></el-icon>
+            登入系統
           </el-button>
         </el-form-item>
       </el-form>
-      <div class="text-center">
-        <p class="text-sm text-gray-500">
-          系統版本：v1.0.0 | 
-          <el-button type="text" size="small">忘記密碼？</el-button>
-        </p>
+      <div class="login-footer">
+        <div class="version-info">
+          <span>系統版本：v1.0.0</span>
+          <el-divider direction="vertical" />
+          <el-button type="text" class="forgot-password">忘記密碼？</el-button>
+        </div>
+        <div class="demo-accounts">
+          <el-text size="small" type="info">
+            演示帳號：admin/123456（管理員）或 user/123456（會計）
+          </el-text>
+        </div>
       </div>
     </div>
   </div>
@@ -63,7 +73,7 @@
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElForm } from 'element-plus'
-import { User, Lock } from '@element-plus/icons-vue'
+import { User, Lock, Film } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const loginFormRef = ref<InstanceType<typeof ElForm>>()
@@ -118,8 +128,138 @@ const handleLogin = async () => {
 </script>
 
 <style scoped>
-/* 自定義樣式 */
-.el-form-item {
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-section {
+  margin-bottom: 16px;
+}
+
+.logo-icon {
+  font-size: 48px;
+  color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.login-form {
   margin-bottom: 24px;
+}
+
+.login-form :deep(.el-form-item) {
+  margin-bottom: 20px;
+}
+
+.login-form :deep(.el-input__wrapper) {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-form :deep(.el-input__wrapper:hover) {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-form :deep(.el-input__wrapper.is-focus) {
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.login-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.login-footer {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.version-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #95a5a6;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: #667eea;
+  padding: 0;
+}
+
+.demo-accounts {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #667eea;
 }
 </style>
