@@ -22,6 +22,22 @@
           @select="handleMenuSelect"
           router
         >
+          <!-- 人力資源管理 -->
+          <el-sub-menu index="hr">
+            <template #title>
+              <el-icon><UserFilled /></el-icon>
+              <span>人力資源</span>
+            </template>
+            <el-menu-item index="/modules/employees">
+              <el-icon><User /></el-icon>
+              員工基本資料
+            </el-menu-item>
+            <el-menu-item index="/modules/labor-insurance">
+              <el-icon><DocumentCopy /></el-icon>
+              勞健保資訊管理
+            </el-menu-item>
+          </el-sub-menu>
+
           <!-- 財務管理模組群 -->
           <el-sub-menu index="finance">
             <template #title>
@@ -29,7 +45,7 @@
               <span>財務管理</span>
             </template>
             <el-menu-item index="/modules/payroll">
-              <el-icon><UserFilled /></el-icon>
+              <el-icon><CreditCard /></el-icon>
               員工薪資管理
             </el-menu-item>
             <el-menu-item index="/modules/equipment">
@@ -109,6 +125,8 @@ import { ElMessage } from 'element-plus'
 import {
   Money,
   UserFilled,
+  User,
+  CreditCard,
   Camera,
   OfficeBuilding,
   Promotion,

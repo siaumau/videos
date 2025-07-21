@@ -27,6 +27,18 @@ const router = createRouter({
           path: '/modules/:module',
           name: 'module-detail',
           component: () => import('../views/ModuleDetailView.vue')
+        },
+        {
+          path: '/modules/employees',
+          name: 'employees',
+          component: () => import('../modules/employees/views/EmployeeListView.vue'),
+          meta: { requiresAuth: true }
+        },
+        {
+          path: '/modules/labor-insurance',
+          name: 'labor-insurance',
+          component: () => import('../modules/employees/views/LaborInsuranceView.vue'),
+          meta: { requiresAuth: true }
         }
       ]
     }

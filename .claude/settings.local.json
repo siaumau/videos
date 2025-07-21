@@ -5,7 +5,9 @@
       "Bash(npm create:*)",
       "Bash(npm install)",
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run type-check:*)"
     ],
     "deny": []
   }
